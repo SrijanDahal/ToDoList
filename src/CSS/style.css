@@ -1,0 +1,82 @@
+body {
+    background-color:rgba(244, 122, 0, 0.854);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px 30px 0px 30px;
+}
+
+/* Header part of the page */
+.header {
+    position: relative;
+}
+
+.headerLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.headingLogo {
+    font-size: 2em;
+    color: #543A14;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navLinks li {
+    color: #543A14;
+    font-weight: bold;
+    list-style: none;
+    margin-right: 60px;
+    font-size: 1.2em;
+}
+
+.links-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLinks a {
+    text-decoration: none;
+    color: black;
+}
+
+.buttons {
+    background-color: #ffd8a5;
+    box-shadow: 5px 5px 5px #543A14;
+    border: 1px solid #543A14;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-size: 1em;
+}
+
+/* Main part of the page */
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.texts,
+.image {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    padding: 20px;
+}
+
+
+.image img {
+    grid-area: 1/2/2/3;
+    width: 40vw;
+    height: 60vh;
+}
