@@ -18,21 +18,37 @@ const loginButton = document.querySelector('.buttonsLogIn');
 
 const submitButton = document.querySelector('.submitButton');
 
-const inputs = document.querySelectorAll('input');
+const submitButtonLogIn = document.querySelector('.submitButtonLogin');
+const inputsLogIn = document.querySelectorAll('.inputLogin');
+
+const inputsSingUp = document.querySelectorAll('.inputSingUp');
 
 
-
-submitButton.addEventListener('click', () => {
-    const isEmpty = Array.from(inputs).some(input => input.value === '');
+submitButtonLogIn.addEventListener('click', () => {
+    const isEmpty = Array.from(inputsLogIn).some(input => input.value === '');
     
     if (isEmpty) {
         alert('Please fill in all the fields');
     } else {
-        mainLandingPage.style.display = 'block';
+        loginPage1.style.display = 'none';
+        
+        // Clear all inputs
+        inputsLogIn.forEach(input => input.value = '');
+    }
+
+}
+);
+
+submitButton.addEventListener('click', () => {
+    const isEmpty = Array.from(inputsSingUp).some(input => input.value === '');
+    
+    if (isEmpty) {
+        alert('Please fill in all the fields');
+    } else {
         signupPage.style.display = 'none';
         
         // Clear all inputs
-        inputs.forEach(input => input.value = '');
+        inputsSingUp.forEach(input => input.value = '');
     }
 
 }

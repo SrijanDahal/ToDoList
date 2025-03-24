@@ -43,6 +43,7 @@ export function loginPage() {
             const textBoxes = ['Email', 'Password'];
             textBoxes.forEach((textBox) => {
                 const input = document.createElement('input');
+                input.classList.add('inputLogin');
                 if (textBox === 'Password') {
                     input.type = 'password';
                 }
@@ -57,9 +58,13 @@ export function loginPage() {
 
         function submitButton() {
             const submitButton = document.createElement('button');
-            submitButton.classList.add('submitButton');
+            submitButton.classList.add('submitButtonLogin');
             submitButton.textContent = 'Submit';
-            form.appendChild(submitButton);
+            submitButton.addEventListener('click', () => {
+                event.preventDefault();
+            });
+            hyperlink.appendChild(submitButton);
+            form.appendChild(hyperlink);
         }
     }
 

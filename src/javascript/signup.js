@@ -47,6 +47,7 @@ export function signUpPage() {
             const textBoxes = ['First Name', 'Last Name', 'Email', 'Password', 'Confirm Password'];
             textBoxes.forEach((textBox) => {
                 const input = document.createElement('input');
+                input.classList.add('inputSingUp');
                 if (textBox === 'Password' || textBox === 'Confirm Password') {
                     input.type = 'password';
                 }
