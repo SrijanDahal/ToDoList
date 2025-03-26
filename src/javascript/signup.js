@@ -27,7 +27,7 @@ export function signUpPage() {
 
     // Creating the heading for the page
     function HeadingForThePage() {
-        const heading = document.createElement('h1');
+        const heading = document.createElement('h2');
         heading.className = 'heading-signUpPage';
         heading.textContent = 'Sign Up';
         divForPage.appendChild(heading);

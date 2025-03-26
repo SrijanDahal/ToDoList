@@ -2,10 +2,13 @@ body {
     background-color: rgba(244, 122, 0, 0.854);
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 10px 30px 0px 30px;
+    padding: 0;
 }
 
 /* Header part of the page */
+.landing-page {
+    display: none;
+}
 .headerLinks {
     display: flex;
     justify-content: space-between;
@@ -77,7 +80,7 @@ body {
 
 .texts h1 {
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .image {
@@ -105,4 +108,20 @@ body {
 
 .main-page-todolist {
     display: block;
+    background-color: #ffd8a5;
+}
+
+/* Container of the to-do list */
+
+.container-mainPage {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 30px;
+    background-color: whitesmoke;
+}
+
+.contentsForThePage {
+    background-color: red;
+    width: 60vw;
+    grid-column: 2/3;
 }

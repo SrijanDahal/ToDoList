@@ -24,7 +24,7 @@ export function loginPage() {
 
     // Creating the heading for the page
     function HeadingForThePage() {
-        const heading = document.createElement('h1');
+        const heading = document.createElement('h2');
         heading.className = 'heading-loginPage';
         heading.textContent = 'Login';
         divForPage.appendChild(heading);
