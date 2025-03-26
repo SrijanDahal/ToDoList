@@ -33,6 +33,7 @@ export function loginPage() {
     // Creating the form for the page
     function form() {
         const form = document.createElement('form');
+        form.id = 'form-login';
         form.style.display = 'flex';
         form.style.flexDirection = 'column';
         form.style.alignContent = 'center';
