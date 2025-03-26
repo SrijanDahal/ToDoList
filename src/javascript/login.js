@@ -14,6 +14,7 @@ export function loginPage() {
     // adding the div to the container
     container.appendChild(divForPage);
 
+    // Styling the div
     function styleForDiv() {
         divForPage.style.display = 'flex';
         divForPage.style.flexDirection = 'column';
@@ -21,6 +22,7 @@ export function loginPage() {
         divForPage.style.justifySelf = 'center';
     }
 
+    // Creating the heading for the page
     function HeadingForThePage() {
         const heading = document.createElement('h1');
         heading.className = 'heading-loginPage';
@@ -28,6 +30,7 @@ export function loginPage() {
         divForPage.appendChild(heading);
     }
 
+    // Creating the form for the page
     function form() {
         const form = document.createElement('form');
         form.style.display = 'flex';
@@ -36,9 +39,11 @@ export function loginPage() {
         form.style.justifyContent = 'center';
         divForPage.appendChild(form);
 
+        // Calling the functions that would crete a textboxes and a submit button
         textboxes();
         submitButton();
 
+        // Creating the textboxes for the form
         function textboxes() {
             const textBoxes = ['Email', 'Password'];
             textBoxes.forEach((textBox) => {
@@ -56,6 +61,7 @@ export function loginPage() {
             });
         }
 
+        // Creating the submit button for the form
         function submitButton() {
             const submitButton = document.createElement('button');
             submitButton.classList.add('submitButtonLogin');
@@ -63,10 +69,10 @@ export function loginPage() {
             submitButton.addEventListener('click', () => {
                 event.preventDefault();
             });
-            hyperlink.appendChild(submitButton);
-            form.appendChild(hyperlink);
+            form.appendChild(submitButton);
         }
     }
 
+    // Returning the container
     return container;
 }

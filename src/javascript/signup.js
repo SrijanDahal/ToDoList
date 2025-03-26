@@ -17,6 +17,7 @@ export function signUpPage() {
     // adding the div to the container
     container.appendChild(divForPage);
     
+    // Styling the div
     function styleForDiv() {
         divForPage.style.display = 'flex';
         divForPage.style.flexDirection = 'column';
@@ -24,6 +25,7 @@ export function signUpPage() {
         divForPage.style.justifySelf = 'center';
     }
 
+    // Creating the heading for the page
     function HeadingForThePage() {
         const heading = document.createElement('h1');
         heading.className = 'heading-signUpPage';
@@ -31,6 +33,7 @@ export function signUpPage() {
         divForPage.appendChild(heading);
     }
 
+    // Creating the form for the page
     function form() {
         const form = document.createElement('form');
         form.id = 'form';
@@ -38,11 +41,15 @@ export function signUpPage() {
         form.style.flexDirection = 'column';
         form.style.alignContent = 'center';
         form.style.justifyContent = 'center';
-        divForPage.appendChild(form);
 
+        // Calling the functions that would crete a textboxes and a submit button
         textboxes();
         submitButton();
 
+        // Adding the form to the div
+        divForPage.appendChild(form);
+        
+        // Creating the textboxes for the form
         function textboxes() {
             const textBoxes = ['First Name', 'Last Name', 'Email', 'Password', 'Confirm Password'];
             textBoxes.forEach((textBox) => {
@@ -61,14 +68,14 @@ export function signUpPage() {
                 input.style.marginBottom = '10px';
                 input.style.width = '25vw';
                 input.style.height = '2vh';
-                input.className = 'input';
                 form.appendChild(input);
             });
         }
         
+        // Creating the submit button for the form
         function submitButton() {
             const submit = document.createElement('button');
-            submit.classList.add('submitButton');
+            submit.classList.add('submitButtonSingUp');
             submit.textContent = 'Submit';
             submit.style.backgroundColor = 'blue';
             submit.style.color = 'white';
@@ -79,6 +86,7 @@ export function signUpPage() {
             submit.addEventListener('click', () => {
                 event.preventDefault();
             });
+
             form.appendChild(submit);
         }
     }
