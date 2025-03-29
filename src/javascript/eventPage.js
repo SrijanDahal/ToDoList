@@ -22,7 +22,7 @@ export function eventPage() {
 
     // Creating a function for the form
     function formProject() {
-        const formProject = form('eventPage');
+        const formProject = form('eventPage', 'eventPageId');
         formProject.style.display = 'none';
         container.appendChild(formProject);
     }

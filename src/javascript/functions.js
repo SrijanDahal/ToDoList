@@ -116,3 +116,4 @@ export const buttonstyles = function buttonstyles(classname, textContent) {
     button.style.borderRadius = '5px';
     return button;
 }
+
