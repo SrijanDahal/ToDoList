@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- This is a landing page for the site.-->
+    <div class="landing-page">
+        <header class="header">
+            <div class="headerLinks"> <!-- Creating a div that would contain the header for the site.-->
+                <h1 class="headingLogo">Organizer</h1>
+                <nav class="navLinks">
+                    <div class="links-div">
+                        <a href=""><li class="links">About</li></a>
+                        <a href=""><li class="links">Features</li></a>
+                    </div>
+                    <div class="buttons-div">
+                        <button class="buttons buttonsSignUP">Sign Up</button>
+                        <button class="buttons buttonsLogIn">Log In</button>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    
+        <!-- Main div for the landing page-->
+        <div class="heading-landing-page">
+            <div class="texts">
+                <h1>Welcome to the,</h1>
+                <h1>Organizer</h1>
+                <h2>Organize your work, tasks, events,<br> and also track your progress.</h2>
+                <div class="buttons-main">
+                    <button class="buttons buttonsSignUP">Start Now</button>
+                </div>
+            </div>
+            <div class="image">
+                <img src="./images/todo-removebg-preview.png" alt="To do list">
+            </div>
+        </div>
+
+    </div>
+
+     <!-- This is the page user will be directed to after loggin or singin up.-->
+    <div class="main-page-todolist">
+        <div class="container-mainPage">
+            <div class="sidebar"> <!-- This would have a bunch of links that would display features and settings of the site.-->
+                <div class="features">
+                    <!-- This is all the buttons that would display the projects, todo taxks and events.-->
+                    <div class="logoAndIcons">
+
+                        <!-- A div for the logo-->
+                        <div class="logo">
+                            <h1><b style="color: rgb(12, 41, 255);">ORG</b><b style="color: rgb(0, 0, 0);">ANI</b><b style="color: rgb(255, 179, 0);">ZER</b></h1>
+                        </div>
+
+                        <!-- A div for the features of the site-->
+                        <div class="features-links">
+                            <h1>HOME</h1>
+                            <div class="projects">
+                                <i class="fa-solid fa-diagram-project"></i>
+                                <button class="myprojects"><h2>My projects</h2></button>
+                            </div>
+
+                            <div class="tasks">
+                                <i class="fa-solid fa-list-check"></i>
+                                <button><h2>My Tasks</h2></button>
+                            </div>
+
+                            <div class="events">
+                                <i class="fa-solid fa-calendar"></i>
+                                <button><h2>My Events</h2></button>
+                            </div>
+
+                        </div>
+
+                        <!-- The div for the tasks for the specific dates-->
+                        <div class="dates">
+                            <h1>DUES</h1>
+                            <div class="today">
+                                <i class="fa-solid fa-calendar-day"></i>
+                                <button><h2>Today</h2></button>
+                            </div>
+                            <div class="tomorrow">
+                                <i class="fa-solid fa-calendar-day"></i>
+                                <button><h2>Tomorrow</h2></button>
+                            </div>
+                            <div class="allTasks">
+                                <i class="fa-solid fa-calendar-day"></i>
+                                <button><h2>All Tasks</h2></button>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- A div for the seetings-->
+
+                    <!-- This would contain the settings for the site.-->
+                <div class="settings">
+                    <h2>Profile</h2>
+                    <div class="settings-logo">
+                        <i class="fa-solid fa-gears"></i>
+                       <button><h3>Settings</h3></button>
+                    </div>
+                    <div class="logOut">
+                        <i class="fa-solid fa-sign-out"></i>
+                        <button><h3>Log Out</h3></button>
+                    </div>
+                </div>
+
+                <!-- A div for the feedback for the page-->
+                <div class="feedback">
+                    <i class="fa-solid fa-comment"></i>
+                    <button><h3>Feedback</h3></button>
+                </div>
+            </div>
+
+
+            <div class="contentsForThePage">
+                <h1 class="default">Click in the sidebar to create project or add taks or events.</h1>
+                <!-- This would contain the content of the users todo list.-->
+                 <div class="contents">
+                    
+                 </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
