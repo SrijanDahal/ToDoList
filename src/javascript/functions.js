@@ -1,4 +1,4 @@
-import { objects } from "./card";
+import { objects, createCard } from "./card";
 
 export const form = function form(classname, idname) {
   // Creating a div for the form
@@ -14,7 +14,7 @@ export const form = function form(classname, idname) {
 
   // Calling the functions that would create textboxes and a submit button
   textboxes();
-  cancelandSubmitButtons(classname);
+  cancelandSubmitButtons();
 
   // Creating the textboxes for the form to take users input
   function textboxes() {
@@ -24,9 +24,17 @@ export const form = function form(classname, idname) {
       input.classList.add(textBox);
       if (textBox === "dueDate") {
         input.type = "date";
+        input.name = "dueDate";
       } else {
-        input.type = "text";
-        input.style.width = "30vw";
+        if (textBox === "description") {
+          input.name = "description";
+          input.type = "text";
+          input.style.width = "30vw";
+        } else {
+          input.name = "title";
+          input.type = "text";
+          input.style.width = "30vw";
+        }
       }
       input.required = true;
       input.placeholder = textBox;
@@ -43,11 +51,11 @@ export const form = function form(classname, idname) {
     divforButtons.style.flexDirection = "row";
 
     // Calling the functions that would create the submit and cancel buttons
-    submitButton(classname);
-    createCancelButton(classname);
+    submitButton();
+    createCancelButton();
 
     // Creating the submit button for the form to submit the users input
-    function submitButton(classname) {
+    function submitButton() {
       const submitButton = buttonstyles("submitButton", "Submit");
       submitButton.style.backgroundColor = "green";
 
@@ -88,50 +96,74 @@ export const buttonstyles = function buttonstyles(classname, textContent) {
 };
 
 function display(formdiv) {
-  const inputs = document.querySelectorAll("input");
+  const inputs = formdiv.querySelectorAll("input");
   formdiv.style.display = "none";
   inputs.forEach((input) => {
-    input.value = "";
+    input.value = ""; // Clear input values
   });
 }
 
 function areInputsEmpty(inputs) {
-  if (inputs.value.trim() === "") {
-    return true; // Return true if any input is empty
-  }
-  return false; // Return false if all inputs have values
+  return Array.from(inputs).some((input) => input.value.trim() === "");
 }
 
 // Creating a function that would create a cancel button for the form
 export const cancelButton = function cancelButton(formDiv) {
-  const cancelButtons = document.querySelectorAll(".cancelButton");
-  cancelButtons.forEach((cancelButton) => {
-    cancelButton.addEventListener("click", (e) => {
-      display();
-    });
+  const cancelButtons = formDiv.querySelector(".cancelButton");
+
+  // Remove any existing event listener to prevent duplication
+  const newCancelButton = cancelButtons.cloneNode(true);
+  cancelButtons.parentNode.replaceChild(newCancelButton, cancelButtons);
+
+  newCancelButton.addEventListener("click", () => {
+    display(formDiv);
   });
 };
 
 export const submitButton = function submitButton(formDiv, type) {
-  const submitButtons = document.querySelectorAll(".submitButton");
-  const inputs = document.querySelectorAll("input");
-  const title = document.querySelectorAll(".title");
-  const description = document.querySelectorAll(".description");
-  const dueDate = document.querySelectorAll(".dueDate");
+  const submitButtons = formDiv.querySelector(".submitButton");
+  const inputs = formDiv.querySelectorAll("input");
 
-  submitButtons[0].addEventListener("click", (e) => {
-    if (
-      areInputsEmpty(title[0]) ||
-      areInputsEmpty(description[0]) ||
-      areInputsEmpty(dueDate[0])
-    ) {
+  // Remove any existing event listener to prevent duplication
+  const newSubmitButton = submitButtons.cloneNode(true);
+  submitButtons.parentNode.replaceChild(newSubmitButton, submitButtons);
+
+  newSubmitButton.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    // Check if any input is empty
+    if (areInputsEmpty(inputs)) {
       alert("Please fill in all fields");
-    } else {
-      objects.project.title.push(title[0].value);
-      objects.project.description.push(description[0].value);
-      objects.project.dueDate.push(dueDate[0].value);
-      console.log(objects.project);
-      display(formDiv);
+      return; // Stop further execution if inputs are empty
     }
+    // Proceed with form submission logic
+    const [title, description, dueDate] = inputs;
+    if (type === "project") {
+      objects.project.title.push(title.value);
+      objects.project.description.push(description.value);
+      objects.project.dueDate.push(dueDate.value);
+      // Call the card function to create a new card
+      const card = createCard(type);
+      // Append the new card to the project page
+      const containerprojectPage = document.querySelector(
+        ".container-projectPage"
+      );
+      containerprojectPage.appendChild(card);
+      // Log the project object to the console
+      console.log(objects.project);
+    } else if (type === "task") {
+      objects.task.title.push(title.value);
+      objects.task.description.push(description.value);
+      objects.task.dueDate.push(dueDate.value);
+      console.log(objects.task);
+    } else if (type === "event") {
+      objects.event.title.push(title.value);
+      objects.event.description.push(description.value);
+      objects.event.dueDate.push(dueDate.value);
+      console.log(objects.event);
+    }
+
+    // Hide the form and clear inputs
+    display(formDiv);
   });
 };

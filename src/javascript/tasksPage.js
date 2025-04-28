@@ -1,4 +1,4 @@
-import { form, buttonstyles, cancelButton } from "./functions.js";
+import { form, buttonstyles, cancelButton, submitButton } from "./functions.js";
 
 export function tasksPage() {
   // Created a container for the project page
@@ -39,6 +39,7 @@ export function tasksPage() {
       formDiv.style.display = "block";
       // Creating a cancel button for the form to cancel the filling of the form
       cancelButton(formDiv);
+      submitButton(formDiv, "task");
     });
   }
 
